@@ -1,0 +1,28 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadalmoqdad/notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadalmoqdad/notes/issues"
+  },
+  "homepage": "https://github.com/mohammadalmoqdad/notes#readme",
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "random-id": "^1.0.4"
+  }
+}
