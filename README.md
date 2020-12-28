@@ -13,4 +13,6 @@
 * **e.g.** ` node index.js --a "your Note"`
 
 ##### Tests:
-- Test `node index.js()anything except [--add || -a ] 'Create my note' => you should use (--add , -a or --a) to add a note `
+- Test `node index.js()anything except [--add || -a ] 'Create my note' => Not Valid Input! \n you should use (--add , -a or --a) to add a not `
+
+
