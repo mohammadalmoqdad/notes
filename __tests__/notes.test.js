@@ -1,5 +1,6 @@
 'use strict';
 const Note = require('../lib/notes');
+const notesCollection = require('../models/notes-collection');
 
 require('@code-fellows/supergoose');
 
@@ -46,17 +47,32 @@ describe('Notes actions Model', () => {
         });
     })
 
-    it("THe note is no longer in database after deletion", ()=>{
+    it("THe note is no longer in database after deletion so can not search for it after deletion", ()=>{
         let obj = { action: 'add', paylod: "my test note", category: ' Running Test' };
         noteCollection.create(obj).then(result => {
-        let obj = { action: 'add', id: `${result._id}` };
+        let obj = { action: 'add', id: result };
          noteCollection.delete(obj).then(res=>{
-             let checkDeletedObj  = {action: "list", id: obj.id}
+             let checkDeletedObj  = {action: "list", id: res.id}
            return noteCollection.read(checkDeletedObj).then(res=>{
-               expect(res).not.toEqual(true);
+               expect(res).toEqual(false);
            })
             })
         })
     })
+
+    it("The entered ID for search should be in the db",()=>{
+        let obj={action:"list", id:"WrongId"};
+        return notesCollection.read(obj).then(result=>{
+            expect(result).toEqual(false);
+        })
+    })
+
+    it("The category should be in the database",()=>{
+        let obj={action:"list", category:"notInDBCategory"};
+        return noteCollection.read(obj).then(result=>{
+            expect(result).toBeFalsy();
+        })
+    })
+
 
 })
