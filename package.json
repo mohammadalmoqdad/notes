@@ -1,11 +1,10 @@
 {
   "name": "notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Auther: Mohammad Almokdad ### links and resources    - [sumbition pull request]('https://github.com/mohammadalmoqdad/notes/pull/1') ### Mudules: - `node.js` ### packages: - `minimist`",
   "main": "index.js",
   "directories": {
-    "lib": "lib",
-    "test": "tests"
+    "lib": "lib"
   },
   "scripts": {
     "test": "jest --coverage --verbose"
@@ -22,8 +21,12 @@
   },
   "homepage": "https://github.com/mohammadalmoqdad/notes#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "jest": "^26.6.3",
     "minimist": "^1.2.5",
-    "random-id": "^1.0.4"
-  }
+    "mongoose": "^5.11.9",
+    "random-id": "^1.0.4",
+    "supergoose": "^0.2.6"
+  },
+  "devDependencies": {}
 }
