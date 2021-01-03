@@ -33,24 +33,5 @@ describe('input Model', () => {
         expect(inputObj.IfAddEntered).toEqual(true);
     })
 
-    it('expect repeat',()=>{
-        for(let i=0; i<4; i++){
-            expect(1).toEqual(1);
-        }
-    })
 })
 
-
-
-// jest.mock('supergoose ');
-// supergoose.mockImplementation(() => {
-//     return {
-//         anything: "this is for args[1] in input.js",
-//         add: 'Here is my noooooote yupeee'
-//     }
-// })
-
-// describe("database model", () => {
-//     let notes = new notesSchema({});
-
-// })

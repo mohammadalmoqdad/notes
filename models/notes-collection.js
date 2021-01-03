@@ -5,26 +5,18 @@ class Note {
     constructor() {
 
     }
-
-
-
     async create(obj) {
         try {
             let record = new noteSchema(obj);
             let result = await record.save();
             console.log(`note saved This is fun`)
             console.log(result, "ammmmmmresutlltltltltll")
-            return result._id;
+            return result;
         }
         catch (e) {
             console.log(e)
         }
     }
-
-
-
-
-
 
     async read(obj) {
 
@@ -49,14 +41,22 @@ class Note {
             allNotes.forEach(element => {
                 console.log(`${element.paylod} \n Category : ${element.category} \n -------------------------------------`)
             });
+            if (allNotes.length > 0) return true;
+            else return false;
         }
         else if (typeof obj['id'] == "string" && obj["id"]) {
-            
+            try{
+            console.log(obj,"i am object in list function")
             let oneNote = await noteSchema.find({ _id: obj.id });
             // console.log(oneNote)  // arrrrrrrrrrraaaaaaaayyyyyyyyy
             console.log(`${oneNote[0].paylod} \n Category : ${oneNote[0].category} \n -------------------------------------`)
             if (oneNote.length > 0) return true;
-            else return false;
+            }
+            catch(e){
+                console.log("not working")
+            return false;
+            }
+           
         }
     }
 
@@ -80,6 +80,20 @@ class Note {
 
         // }
 
+        async delete (obj) {
+            try {
+                let id = await noteSchema.findByIdAndDelete({ _id: obj.id });
+                console.log(`Deleted Note with ID : ${id}`);
+                return obj.id;
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+    
+    
+
+
     }
 
 
@@ -87,17 +101,6 @@ class Note {
 
 
 
-    async delete(obj) {
-        try {
-            let id = await noteSchema.findByIdAndDelete({ _id: obj.id });
-            console.log(`Deleted Note with ID : ${id}`);
-            return obj.id;
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
-
-}
+    
 
 module.exports = new Note();
